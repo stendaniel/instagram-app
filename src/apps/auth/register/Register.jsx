@@ -3,13 +3,11 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Components } from '../../../components';
 import Logo from "../../../assets/images/logo/insta.png";
-import { Link } from 'react-router-dom';
+import { REQUEST } from '../../../api';
+import { Hooks } from '../../../hooks';
 import { formsValidate } from '../../../helpers/forms';
 
 import cls from "../../../assets/styles/register/Register.module.scss";
-import { REQUEST } from '../../../api';
-import { Hooks } from '../../../hooks';
-import { authPath } from '../../../services/path';
 
 export default function Register() {
   const { goToLogin }  = Hooks.useLocations();
@@ -43,7 +41,7 @@ export default function Register() {
   return (
     <Components.Container>
       <section className={cls.register_page}>
-        <div className={cls.register_page_card}>
+        <div className={cls.register_page_card} data-aos="zoom-in-right">
           <Components.Image src={Logo}/>
 
           <h3>
@@ -133,14 +131,7 @@ export default function Register() {
           </form>
         </div>
 
-        <div className={cls.register_page_bottomCard}>
-          <p>
-            Есть аккаунт?
-            <Link to={authPath.login}>
-              Вход
-            </Link>
-          </p>
-        </div>
+        <Components.Forms.AuthNavigate location="register" />
       </section>
     </Components.Container>
   )
