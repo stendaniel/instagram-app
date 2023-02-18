@@ -16,3 +16,16 @@ ul {
   margin: 0;
   list-style: none;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader img{
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}

@@ -5,6 +5,8 @@ import Aos from 'aos';
 import { Route, Routes as Switch } from 'react-router-dom';
 import { Routers } from '../pages';
 import { Apps } from '../services/path';
+import { Components } from '../components';
+
 import "aos/dist/aos.css";
 
 export default function Routes() {
@@ -17,9 +19,10 @@ export default function Routes() {
 
   return (
     <React.Fragment>
-      <React.Suspense fallback={<h1>Loading...</h1>}>
+      <React.Suspense fallback={<Components.Loader />}>
         <Switch>
           <Route path={Apps.accounts} element={<Routers.AuthRoutes />}/>
+          <Route path={Apps.layout} element={<Routers.LayoutRoutes />}/>
         </Switch>
       </React.Suspense>
     </React.Fragment>
